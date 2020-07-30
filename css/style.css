@@ -1,6 +1,20 @@
 
 /* Menu */
 
+*{
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background-color: #f0f0f0;
+}
+
+html {
+   font-family: "Roboto", sans-serif;
+}
+
 section.menu {
    margin-top: 20%;
    border: 1px solid;
@@ -16,7 +30,6 @@ section.menu {
    height: 200px;
 }
 
-
 /* formulario */
 section.formulario {
    padding-top: 20px;
@@ -29,11 +42,3 @@ form {
    padding: 5px;
 }
 
-legend {
-   text-align: center;
-   margin-top: 26px;
-   margin-bottom: 55px;
-   font-size: 30px;
-   font-weight: 400;
-   border-bottom: none;
-}
