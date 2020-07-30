@@ -1,0 +1,16 @@
+entrada
+- codigo - id
+descricao -
+data - 
+quantidade
+obs - txt
+motivo - select -
+
+saida - historico
+codigo
+descricao
+data
+quantidade
+obs
+motivo -select;
+
