@@ -12,6 +12,11 @@ if(isset($_POST['usuario']) && empty($_POST['usuario']) == false){
     $sql->bindValue(":senha", md5($senha));
     $sql->execute();
 
+    // usuario inexistente
+    if ($usuario != 'true') {
+        echo "usuario inexistente";
+    }
+
     if($sql->rowCount() > 0){
         $sql = $sql->fetch();
         
@@ -54,18 +59,19 @@ if(isset($_POST['usuario']) && empty($_POST['usuario']) == false){
 <body>
 
         <form action="" method="post">
+         <img src="img/" class="img-responsive" alt="">
             <h1>Login</h1>
 
             <fieldset>
         
                 <div class="form-group">
                     <label for="">Usuário</label>
-                    <input type="text" name="usuario" class="form-control" required="required">
+                    <input type="text" name="usuario" class="form-control">
                 </div>
 
                 <div class="form-group">
                     <label for="">Senha</label>
-                    <input type="password" name="senha" class="form-control" required="required">
+                    <input type="password" name="senha" class="form-control">
                 </div>
             </fieldset>
 

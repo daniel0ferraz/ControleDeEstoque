@@ -18,6 +18,7 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
 } else {
     header("Location: login.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt_br">
@@ -28,11 +29,15 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
     <title>Controle de Estoque</title>
     <!-- Bootstrap CSS -->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="../Estoque/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" href="bootstrap-3.4.1-dist/css/bootstrap.min.css">
-
+    <link rel="stylesh
+    eet" href="bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="font-awesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="font-awesome/css/solid.min.css">
     <link rel="stylesheet" href="font-awesome/css/regular.min.css">
@@ -80,11 +85,11 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
         <div class="container-fluid">
             <div class="row">
 
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                     <div class="list-group">
                         <a href="#" class="list-group-item active">Estoque</a>
                         <a href="entrada.php" class="list-group-item">Novo Produto</a>
-                        <a href="editar.php" class="list-group-item">Editar Produto</a>
+                        <a href="Saldo.php" class="list-group-item">Saldo</a>
                         <a href="saida.php" class="list-group-item active">Saida</a>
                         <a href="#" class="list-group-item"></a>
                     </div>
@@ -94,15 +99,20 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
 
                 <!--Fim barra lateral itens-->
 
-                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                    <legend>Controle de Estoque</legend>
+                <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+
+                    <div class="box-titulo">
+                        <h2>
+                            <span></span>Controle de Estoque</h2>
+                    </div>
+
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Consulta
+                            Movimentações
                         </div>
                         <!--Panel Heading-->
-                        <div class="">
-                            <table class="table">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-condensed">
                                 <thead>
                                     <tr>
                                         <th>Código</th>
@@ -117,8 +127,8 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
                                 </thead>
                                 <tbody>
                                     <?php
-                          $sql = $pdo->prepare("SELECT * FROM entrada ");
-                          $sql->execute();
+                          $sql = ("SELECT * FROM entrada ORDER BY CODIGO DESC");
+                          $sql = $pdo->query($sql);
 
                           if ($sql->rowCount() > 0) {
                             foreach ($sql->fetchAll() as $entrada) {
@@ -126,28 +136,30 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
                                     <tr>
                                         <td><?php echo $entrada['CODIGO']; ?></td>
                                         <td><?php echo $entrada['DESCRICAO']; ?></td>
-                                        <td><?php echo date('d/m/Y H:i', strtotime($entrada['DATA']));?></td>
+                                        <td><?php echo date('d/m/Y', strtotime($entrada['DATA']));?></td>
                                         <td><?php echo $entrada['QUANTIDADE']; ?></td>
                                         <td><?php echo $entrada['VALOR']; ?></td>
                                         <td><?php echo $entrada['OBS'] ?></td>
                                         <td><?php echo $entrada['MOTIVO']; ?></td>
                                         <td>
-                                            <?php echo '<a class="btn btn-success "href="editar.php?id='.$entrada['CODIGO'] ;?>'"><i
+                                            <?php echo '<a class="btn btn-default"href="editar.php?CODIGO='.$entrada['CODIGO'] ;?>'"><i
                                                 class="far fa-edit"></i></a>
-                                            <?php echo '<a class="btn btn-danger "href="deletar.php?id='.$entrada['CODIGO'] ;?>'"><i
+                                            <?php echo '<a class="btn btn-default "href="deletar.php?CODIGO='.$entrada['CODIGO'] ;?>'"><i
                                                 class="far fa-trash-alt"></i></a>
                                         </td>
                                     </tr>
                                     <?php
                               }
                             }
+                    
                         ?>
                                 </tbody>
                             </table>
+
                         </div>
                         <!--Table-responsive-->
                     </div>
-                    <!--Panel-->
+
                 </div>
                 <!--Col-md-9-->
 

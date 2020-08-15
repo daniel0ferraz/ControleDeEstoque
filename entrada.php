@@ -1,6 +1,23 @@
 <?php
-
+session_start();
 require 'config.php';
+// verifica se há sessaão do usuario
+if (isset($_SESSION['estoque'])) {
+    $id = addslashes($_SESSION['estoque']);
+
+    $sql = $pdo->prepare("SELECT * FROM usuarios WHERE id = :id");
+    $sql->bindValue(":id", $id);
+    $sql->execute();
+
+    if ($sql->rowCount() > 0) {
+        $info = $sql->fetch();
+    } else {
+        header("Location: login.php");
+        exit;
+    }
+} else {
+    header("Location: login.php");
+}
 
 ?>
 
@@ -20,12 +37,9 @@ require 'config.php';
     <link rel="stylesheet" href="font-awesome/css/regular.min.css">
     <link rel="stylesheet" href="font-awesome/css/svg-with-js.min.css">
     <link rel="stylesheet" href="font-awesome/css/v4-shims.min.css">
-
-
 </head>
-
-            <?php
-
+ <?php
+           
             if (isset($_POST['CODIGO']) && empty($_POST['CODIGO']) == false) {
 
                 $CODIGO = addslashes($_POST['CODIGO']);
@@ -36,7 +50,7 @@ require 'config.php';
                 $QUANTIDADE = addslashes($_POST['QUANTIDADE']);
                 $MOTIVO = addslashes($_POST['MOTIVO']);
 
-                $sql = "INSERT INTO entrada SET CODIGO = '$CODIGO', DESCRICAO = '$DESCRICAO', VALOR = '$VALOR', OBS = '$OBS', DATA = '$DATA', QUANTIDADE = '$QUANTIDADE', MOTIVO ='$MOTIVO'";
+                $sql = "INSERT INTO entrada SET CODIGO = '$CODIGO', DESCRICAO = '$DESCRICAO', VALOR = '$VALOR', OBS = '$OBS', DATA = NOW(), QUANTIDADE = '$QUANTIDADE', MOTIVO ='$MOTIVO'";
                 $pdo->query($sql);
 
                 header('Location: index.php');
@@ -45,27 +59,27 @@ require 'config.php';
             ?>
 
 <body>
-<div class="container">
-     
-     <div class="page-header">
-       <h1>Adicionar produto</h1>
 
-       <ol class="breadcrumb">
-           <li>
-               <a href="index.php">Home</a>
-           </li>
-           <li class="active"></li>
-       </ol>
-       
-     </div>
-     
+    <div class="container">
+
+        <div class="page-header">
+            <h2>Cadastrar produto no estoque</h2>
+
+            <ol class="breadcrumb">
+                <li>
+                    <a href="index.php">Home</a>
+                </li>
+                <li class="active">Adicionar</li>
+            </ol>
+
+        </div>
     </div>
 
 
     <section class="formulario">
         <div class="container">
             <form class="form" method="POST">
-                
+
                 <div class="row">
 
                     <div class="col-md-6">
@@ -77,7 +91,7 @@ require 'config.php';
 
                         <div class="form-group">
                             <label>Descricao</label>
-                            <input type="text" name ="DESCRICAO" class="form-control">
+                            <input type="text" name="DESCRICAO" class="form-control">
                         </div>
 
                         <div class="form-group">
@@ -95,17 +109,15 @@ require 'config.php';
 
                     <div class="col-md-6">
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Data</label>
                             <input type="date" name="DATA" class="form-control" >
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label>Quantidade</label>
-                            <input type="number"  name="QUANTIDADE" class="form-control">
+                            <input type="number" name="QUANTIDADE" class="form-control">
                         </div>
-
-
 
                         <div class="form-group">
                             <label>Motivo</label>
@@ -122,7 +134,8 @@ require 'config.php';
 
                         <div class="box-button">
                             <div class="col-xs-6 ">
-                                <button type="submit" value="cadastrar" class="btn btn-block btn-success">Salvar</button>
+                                <button type="submit" value="cadastrar"
+                                    class="btn btn-block btn-success">Salvar</button>
                             </div>
 
                             <div class="col-xs-6">
@@ -130,12 +143,9 @@ require 'config.php';
                             </div>
                         </div>
 
-
             </form>
-        </div>
-        <!--container-->
-    </section>
-    <!--formulario-->
+        </div><!--container-->
+    </section><!--formulario-->
 
 
 

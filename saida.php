@@ -1,5 +1,23 @@
 <?php
+session_start();
 require 'config.php';
+
+if(isset($_SESSION['estoque'])) {
+    $id = addslashes($_SESSION['estoque']);
+
+    $sql = $pdo->prepare("SELECT * FROM usuarios WHERE id = '$id'");
+    $sql->execute();
+
+    if ($sql->rowCount() > 0) {
+        $info = $sql->fetch();
+    } else {
+        header("Location: login.php");
+        exit;
+    }
+} else {
+    header("Location: login.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

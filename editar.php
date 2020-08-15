@@ -10,12 +10,12 @@ if (isset($_GET['CODIGO']) && empty($_GET['CODIGO']) == false) {
  if (isset($_POST['DESCRICAO']) && empty($_POST['DESCRICAO']) == false) {
      $CODIGO = addslashes($_POST['CODIGO']);
      $DESCRICAO = addslashes($_POST['DESCRICAO']);
-     $QUANTIDADE = addslashes($_POST['QUANTIDADE']);
      $VALOR = addslashes($_POST['VALOR']);
      $OBS = addslashes($_POST['OBS']);
+     $QUANTIDADE = addslashes($_POST['QUANTIDADE']);
      $MOTIVO = addslashes($_POST['MOTIVO']);
 
-     $sql = "UPDATE entrada SET CODIGO = '$CODIGO', DESCRICAO = '$DESCRICAO', NOW(), QUANTIDADE = '$QUANTIDADE', VALOR = '$VALOR', OBS = '$OBS', MOTIVO = '$MOTIVO'";
+     $sql = ("UPDATE entrada SET DESCRICAO = '$DESCRICAO',VALOR = '$VALOR', OBS = '$OBS', DATA = NOW(), QUANTIDADE = '$QUANTIDADE', MOTIVO = '$MOTIVO' WHERE CODIGO = '$CODIGO'");
 
      $pdo->query($sql);
      header("Location: index.php");
@@ -40,13 +40,18 @@ if (isset($_GET['CODIGO']) && empty($_GET['CODIGO']) == false) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sistema Estoque</title>
 
+    <!-- Fonte -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../Estoquehcs/bootstrap-3.4.1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../Estoquehcs/font-awesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="../Estoquehcs/font-awesome/css/solid.min.css">
-    <link rel="stylesheet" href="../Estoquehcs/font-awesome/css/regular.min.css">
-    <link rel="stylesheet" href="../Estoquehcs/font-awesome/css/svg-with-js.min.css">
-    <link rel="stylesheet" href="../Estoquehcs/font-awesome/css/v4-shims.min.css">
+    <link rel="stylesheet" href="bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="font-awesome/css/solid.min.css">
+    <link rel="stylesheet" href="font-awesome/css/regular.min.css">
+    <link rel="stylesheet" href="font-awesome/css/svg-with-js.min.css">
+    <link rel="stylesheet" href="font-awesome/css/v4-shims.min.css">
 
 
 </head>
@@ -55,7 +60,7 @@ if (isset($_GET['CODIGO']) && empty($_GET['CODIGO']) == false) {
    <div class="container">
      
      <div class="page-header">
-       <h1>EDITAR PRODUTO</h1>
+       <h2>Atualizar produto do estoque</h2>
 
        <ol class="breadcrumb">
            <li>
@@ -89,7 +94,7 @@ if (isset($_GET['CODIGO']) && empty($_GET['CODIGO']) == false) {
 
                         <div class="form-group">
                             <label>valor</label>
-                            <input type="number" class="form-control" name="VALOR" value="<?php echo $dado['VALOR']; ?>">
+                            <input type="decimal" class="form-control" name="VALOR" value="<?php echo $dado['VALOR']; ?>">
                         </div>
 
                         <div class="form-group">
@@ -102,10 +107,10 @@ if (isset($_GET['CODIGO']) && empty($_GET['CODIGO']) == false) {
 
                     <div class="col-md-6">
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Data</label>
                             <input type="date" name="DATA" class="form-control" value="<?php echo $dado['DATA']; ?>">
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <label>Quantidade</label>
