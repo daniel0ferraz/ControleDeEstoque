@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f0f0;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+.container form{
+  background: #fff;
+  margin: 80px auto;
+  padding: 30px;
+  max-width: 750px;
+  border-radius: 8px;
+
+}
+.container form h1 {
+  font-size: 36px;
+}
+
+ .container form fieldset{
+  margin-top: 50px;
+}
+.container form legend {
+  width: 100%;
+  align-items: center;
+  margin-bottom: 30px;
+  border: 0;
+}
+.container form legend h2 {
+  font-size: 25px;
+}
+
+/* TIPOGRAFIA */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: "Ubuntu", sans-serif;
+   color: #20639B;
+   font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .container {
+    background-position: 70vh;
+  }
+  form {
+    width: 100%;
+    padding: 30px;
+  }
+}
+

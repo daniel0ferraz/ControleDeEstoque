@@ -9,11 +9,11 @@ html {
     font-family: "Roboto", sans-serif;
 }
 
-body{
+body {
     background: #f0f0f5;
 }
 
-form{
+form {
     background: #fff;
     margin: 80px auto;
     padding: 64px;
@@ -36,12 +36,12 @@ form fieldset {
 
 form .form-control {
     background-color: #f0f0f5;
-    
+
 }
 
 button {
     width: 120px;
-    height:35px;
+    height: 35px;
     background: #34cd79;
     border-radius: 5px;
     color: #fff;
@@ -56,11 +56,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Ubuntu", sans-serif;
-  color:  #20639B;
+    font-family: "Ubuntu", sans-serif;
+    color: #20639B;
 }
 
-a, button {
+a,
+button {
     text-decoration: none;
     border: none;
 }

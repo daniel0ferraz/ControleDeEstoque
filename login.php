@@ -40,9 +40,9 @@ if(isset($_POST['usuario']) && empty($_POST['usuario']) == false){
       href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../Estoque/bootstrap-3.4.1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../Estoque/font-awesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="../Estoque/css/login.css">
+    <link rel="stylesheet" href="bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/login.css">
 
     <!-- Fontes -->
 

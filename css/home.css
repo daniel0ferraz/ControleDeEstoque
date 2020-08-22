@@ -1,0 +1,51 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+a {
+   text-decoration: none;
+   color: rgb(14, 13, 13);
+}
+.navbar-brand {
+   padding: 5px 10px;
+   display: flex;
+   align-items: center;
+  
+}
+
+.img-logo {
+   height: 40px;
+   background-size: contain;
+   color: transparent;
+}
+.box-titulo {
+   margin-top: -15px;
+   margin-bottom: 20px;
+}
+.box-titulo h2 {
+   color: rgb(14, 13, 13);
+   font-size: 20px;
+   display: flex;
+ }
+
+body {
+   font-family: "Roboto", sans-serif;
+}
+
+html {
+   font-family: "Roboto", sans-serif;
+}
+
+/* TIPOGRAFIA */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: "Ubuntu", sans-serif;
+   color: #20639B;
+   font-weight: 600;
+}
