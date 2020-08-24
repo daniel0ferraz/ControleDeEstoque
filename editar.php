@@ -52,6 +52,7 @@ if (isset($_GET['CODIGO']) && empty($_GET['CODIGO']) == false) {
   <link rel="stylesheet" href="css/form.css">
 
 </head>
+
 <body>
 
   <div class="container">
@@ -103,7 +104,7 @@ if (isset($_GET['CODIGO']) && empty($_GET['CODIGO']) == false) {
             <div class="form-group">
               <label>Motivo</label>
               <select name="MOTIVO" class="form-control">
-                <option value=""><?php echo $dado['MOTIVO']; ?></option>
+                <option value="<?php echo $dado['MOTIVO']; ?>"><?php echo $dado['MOTIVO']; ?></option>
                 <option value="ESPECIFICAR">ESPECIFICAR</option>
                 <option value="CHAMADO">CHAMADO</option>
                 <option value="DEVOLUCAO">DEVOLUCAO</option>
