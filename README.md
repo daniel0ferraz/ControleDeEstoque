@@ -1,9 +1,3 @@
-# ControleDeEstoque
-Controle de estoque Ti HCS, Web Service implementado ùltilizando as técnologias PHP e MYSQL.
-
-# Controle de estoque HCS
-
----
 
 ## ✔ Projeto
 
