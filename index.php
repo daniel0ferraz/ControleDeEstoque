@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'config.php';
+header("refresh: 0.1");
 
 if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
     $id = $_SESSION['estoque'];
@@ -56,10 +57,6 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
         </button>
         <!--Button-->
 
-        <header>
-          <a href="#"></a>
-        </header>
-
         <a href="#" class="navbar-brand">
           <img src="img/svg/003-inventario.svg" class="img-responsive img-logo" alt="Image">
           Controle de Estoque
@@ -111,6 +108,21 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
           <div class="box-titulo">
             <h2></i>Controle de Estoque</h2>
           </div>
+
+          <div class="row">
+          <div class="col-sm-3 col-xs-3">
+            <div class="well">
+              <i class="fa fa-money" aria-hidden="true"></i>
+              <h4>Saldo</h4>
+              0 </div>
+          </div>
+          <div class="col-sm-3 col-xs-3">
+            <div class="well">
+            <i class="fas fa-clipboard-list"></i>
+              <h4>Itens estoque</h4>
+              0 </div>
+          </div>
+        </div>
 
           <div class="panel panel-default">
             <div class="panel-heading">
