@@ -1,7 +1,8 @@
 <?php
 session_start();
 require 'config.php';
-header("refresh: 0.1");
+require 'contador.php';
+// header("refresh: 0.1");
 
 if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
     $id = $_SESSION['estoque'];
@@ -114,13 +115,13 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
             <div class="well">
               <i class="fa fa-money" aria-hidden="true"></i>
               <h4>Saldo</h4>
-              0 </div>
+              <?php echo $saldo['saldo'];?> </div>
           </div>
           <div class="col-sm-3 col-xs-3">
             <div class="well">
             <i class="fas fa-clipboard-list"></i>
               <h4>Itens estoque</h4>
-              0 </div>
+              <?php echo $itens_estoque['itens'];?></div>
           </div>
         </div>
 
