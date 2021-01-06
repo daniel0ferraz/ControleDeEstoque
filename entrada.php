@@ -57,7 +57,14 @@ if (isset($_SESSION['estoque'])) {
 
                 header('Location: index.php');
 
-            }
+                if ($MOTIVO == 'EMPRESTIMO') {
+                  $sql = $pdo->prepare("UPDATE entrada SET QUANTIDADE = QUANTIDADE - :VAL_TOTAL WHERE id = :id "); 
+                  $sql->bindValue(":MOTIVO", $MOTIVO);
+                  $sql->bindValue(":CODIGO", $CODIGO);
+                  $sql->execute();
+              } 
+
+            } 
             ?>
 
 <body>
@@ -109,11 +116,8 @@ if (isset($_SESSION['estoque'])) {
               <select name="MOTIVO" class="form-control">
                 <option value="">Selecione</option>
                 <option value="ESPECIFICAR">ESPECIFICAR</option>
-                <option value="CHAMADO">CHAMADO</option>
                 <option value="DEVOLUCAO">DEVOLUCAO</option>
                 <option value="EMPRESTIMO">EMPRESTIMO</option>
-                <option value="NOTA FISCAL">NOTA FISCAL</option>
-                <option value="TRANSFERENCIA">TRANSFERENCIA</option>
               </select>
             </div>
 
