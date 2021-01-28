@@ -99,7 +99,7 @@ if (isset($_SESSION['estoque'])) {
 
             <div class="form-group">
               <label>valor</label>
-              <input type="text" class="form-control" name="VALOR">
+              <input type="number" class="form-control" min="0.01" step="0.01" value="0.0" name="VALOR">
             </div>
 
           </div>
@@ -108,7 +108,7 @@ if (isset($_SESSION['estoque'])) {
 
             <div class="form-group">
               <label>Quantidade</label>
-              <input type="number" name="QUANTIDADE" class="form-control">
+              <input type="number" min="1" step="1" value="0" name="QUANTIDADE" class="form-control">
             </div>
 
             <div class="form-group">
