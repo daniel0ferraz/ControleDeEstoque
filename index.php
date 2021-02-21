@@ -63,23 +63,20 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
         </a>
 
       </div>
+      
       <!--Navbar-header-->
-
       <div class="collapse navbar-collapse" id="barra-nav">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="sair.php"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
-          
+          <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
         </ul>
 
       </div>
       <!--Collaose navbar-collapse-->
-    </div>
+    </div> 
     <!--container-fluid-->
-  </nav>
-  <!--Nav-->
-
-  <!--Fim Barra de navegação-->
-
+  </nav> <!--Nav-->
+ <!--Fim Barra de navegação-->
   <main>
     <div class="container-fluid">
       <div class="row">
@@ -95,29 +92,26 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
               Consultar Estoque</a>
               <a href="saida.php" class="list-group-item"><i class="fas fa-dolly fa-2x"></i>
               Transações Estoque</a>
-           
-
           </div>
-        </div>
-        <!--Listgroup-->
+        </div><!--Listgroup-->
 
         <!--Col-sm divsao sidbar/-->
 
         <!--Fim barra lateral itens-->
-
         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 
           <div class="box-titulo">
             <h2></i>Controle de Estoque</h2>
           </div>
 
-          <div class="row">
+        <div class="row">
           <div class="col-sm-3 col-xs-3 col-md-6">
             <div class="well">
               <i class="fa fa-money" aria-hidden="true"></i>
               <h4>Saldo</h4>
               <?php echo $saldo['saldo'];?> </div>
           </div>
+
           <div class="col-sm-3 col-xs-3 col-md-6">
             <div class="well">
             <i class="fas fa-clipboard-list"></i>
