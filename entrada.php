@@ -22,7 +22,7 @@ if (isset($_SESSION['estoque'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt_br">
 
 <head>
   <meta charset="utf-8">

@@ -15,3 +15,5 @@ if (isset($_GET['CODIGO']) && empty($_GET['CODIGO']) == false) {
     header("Location: index.php");
     exit;
 }
+
+
