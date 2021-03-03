@@ -1,8 +1,8 @@
 <?php
 session_start();
-require 'config.php';
+require 'controller/config.php';
 require 'contador.php';
-header("refresh: 0.1");
+// header("refresh: 0.1");
 
 if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
     $id = $_SESSION['estoque'];

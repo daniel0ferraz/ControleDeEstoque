@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require 'controller/config.php';
 // SALDO TOTAL DO ESTOQUE 
 $sql = "SELECT SUM(VAL_TOTAL) AS saldo FROM entrada";
 $stmt = $pdo->prepare($sql);

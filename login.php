@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "config.php";
+require "controller/config.php";
 
 if(isset($_POST['usuario']) && empty($_POST['usuario']) == false){
     $usuario = addslashes($_POST['usuario']);

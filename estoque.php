@@ -1,6 +1,6 @@
 <?php
 session_start();
-header("refresh: 0.2");
+// header("refresh: 0.2");
 require 'config.php';
 ?>
 

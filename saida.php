@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'config.php';
+require 'controller/config.php';
 
 if(isset($_SESSION['estoque'])) {
     $id = addslashes($_SESSION['estoque']);
@@ -111,6 +111,7 @@ if(isset($_SESSION['estoque'])) {
                                 <label>Quantidade</label>
                                 <input type="number"  name="QUANTIDADE" class="form-control">
                             </div>
+                            
                             <div class="form-group">
                                 <label>Motivo</label>
                                 <select name="MOTIVO" class="form-control">
