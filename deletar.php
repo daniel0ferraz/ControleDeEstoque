@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'config.php';
+require 'controller/config.php';
 
 if (isset($_GET['CODIGO']) && empty($_GET['CODIGO']) == false) {
     $CODIGO = addslashes($_GET['CODIGO']);

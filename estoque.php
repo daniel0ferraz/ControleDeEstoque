@@ -1,7 +1,7 @@
 <?php
 session_start();
 // header("refresh: 0.2");
-require 'config.php';
+require 'controller/config.php';
 ?>
 
 <!DOCTYPE html>
