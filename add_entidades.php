@@ -18,7 +18,7 @@ class Produtos extends CI_Controller {
 	}
 
 	//Página de adicionar produto
-	public function add()
+	public function addProduto()
 	{	
 		//Carrega o Model Produtos				
 		$this->load->model('produtos_model', 'produtos');					
@@ -28,7 +28,7 @@ class Produtos extends CI_Controller {
 	}
 
 	//Função salvar no DB
-	public function salvar()
+	public function salvarProduto()
 	{
 		//Verifica se foi passado o campo nome vazio.
 		if ($this->input->post('nome') == NULL) {
