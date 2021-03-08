@@ -1,6 +1,6 @@
 <?php
         
-        if (isset($_POST['CODIGO']) && empty($_POST['CODIGO']) == false) {
+        if (isset($_POST['CODIGO']) && empty($_POST['CODIGO']) == null) {
 
             $CODIGO = addslashes($_POST['CODIGO']);
             $DESCRICAO = addslashes($_POST['DESCRICAO']);
