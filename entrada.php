@@ -1,6 +1,8 @@
 <?php
 session_start();
-require 'controller/onfig.php';
+require_once 'Controller/config.php';
+require_once 'Controller/Add_produtos.php';
+
 // verifica se há sessaão do usuario
 if (isset($_SESSION['estoque'])) {
     $id = addslashes($_SESSION['estoque']);
