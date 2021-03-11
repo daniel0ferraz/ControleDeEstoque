@@ -124,9 +124,10 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
             <div class="panel-heading">
               <i class="fas fa-clipboard-list"></i> Movimentações
             </div>
+
             <!--Panel Heading-->
             <div class="table-responsive">
-              <table class="table table-striped table-condensed">
+              <table class="table table-striped table-condensed" style="min-height: 310px;">
                 <thead>
                   <tr>
                     <th>Código</th>

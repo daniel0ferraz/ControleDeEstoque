@@ -42,6 +42,7 @@ if (isset($_SESSION['estoque'])) {
   <link rel="stylesheet" href="css/form.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
   <div class="container">
@@ -74,7 +75,7 @@ if (isset($_SESSION['estoque'])) {
 
             <div class="form-group">
               <label>valor</label>
-              <input type="number" class="form-control" min="0.01" step="0.01" value="0.0" name="VALOR">
+              <input type="number" class="form-control" min="0.00" step="0.00" value="0.00" name="VALOR">
             </div>
 
           </div>
