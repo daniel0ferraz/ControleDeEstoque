@@ -97,12 +97,14 @@ require 'controller/config.php';
                 </thead>
                 <tbody>
                   <?php
-                          $sql = ("SELECT * FROM entrada ORDER BY CODIGO DESC");
-                          $sql = $pdo->query($sql);
+                  $entrada = [];
+                  $sql = $pdo->query("SELECT * FROM entrada ORDER BY CODIGO DESC");
+                  if ($sql->rowCount() > 0) {
+                  $entrada = $sql->fetchAll();
+                  }
+                  
 
-                          if ($sql->rowCount() > 0) {
-                            foreach ($sql->fetchAll() as $entrada) {
-                                ?>
+                   foreach ($entrada as $entrada): ?>
                   <tr>
                     <td><?php echo $entrada['CODIGO']; ?></td>
                     <td><?php echo $entrada['DESCRICAO']; ?></td>
@@ -118,20 +120,13 @@ require 'controller/config.php';
                         class="far fa-trash-alt"></i></a>
                     </td>
                   </tr>
-                  <?php
-                              }
-                            }
-                    
-                        ?>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
 
             </div>
             <!--Table-responsive-->
  </div>
-
-
 </section>
 </body>
-
 </html>

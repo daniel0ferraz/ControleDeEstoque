@@ -141,12 +141,13 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
                 </thead>
                 <tbody>
                   <?php
-                          $sql = ("SELECT * FROM entrada ORDER BY CODIGO DESC");
-                          $sql = $pdo->query($sql);
-
+                          $entrada = [];
+                          $sql=$pdo->query("SELECT * FROM entrada ORDER BY CODIGO DESC");
                           if ($sql->rowCount() > 0) {
-                            foreach ($sql->fetchAll() as $entrada) {
+                            $entrada = $sql->fetchAll(PDO::FETCH_ASSOC);
+                          }
                                 ?>
+                  <?php foreach($entrada as $entrada): ?>            
                   <tr>
                     <td><?php echo $entrada['CODIGO']; ?></td>
                     <td><?php echo $entrada['DESCRICAO']; ?></td>
@@ -156,11 +157,7 @@ if (isset($_SESSION['estoque']) && empty($_SESSION['estoque']) == false) {
                     <td><?php echo $entrada['OBS'] ?></td>
                     <td><?php echo $entrada['MOTIVO']; ?></td>
                   </tr>
-                  <?php
-                              }
-                            }
-                    
-                        ?>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
 

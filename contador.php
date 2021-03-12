@@ -11,5 +11,5 @@ $sql = "SELECT sum(QUANTIDADE) AS itens FROM entrada";
 $stmt = $pdo->prepare($sql);
 $stmt->execute();
 $itens_estoque = $stmt->fetch();
-
+// hello world!!
 ?>

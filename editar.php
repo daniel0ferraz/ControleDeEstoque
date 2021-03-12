@@ -21,7 +21,7 @@ if (isset($_GET['CODIGO']) && empty($_GET['CODIGO']) == false) {
      $pdo->query($sql);
      header("Location: index.php");
  }
-
+     $dado = [];
      $sql = "SELECT * FROM entrada WHERE CODIGO = '$CODIGO'";
      $sql = $pdo->query($sql);
 
